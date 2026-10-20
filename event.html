@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A gathering — Rawan Roshni</title>
+<meta name="description" content="A gathering with Rawan Roshni: the invitation, what is held, the days, and how to reserve your place.">
+<meta name="theme-color" content="#050A09">
+<link rel="icon" href="favicon.png" type="image/png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="A gathering — Rawan Roshni">
+<meta property="og:description" content="A gathering with Rawan Roshni: the invitation, what is held, the days, and how to reserve your place.">
+<meta property="og:image" content="https://rivawan.com/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Rawan Roshni">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/fraunces-roman.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+<link rel="stylesheet" href="assets/css/zyrn-credit.css">
+<script>(function(d){d.classList.replace('no-js','js');try{var q=new URLSearchParams(location.search).get('lang');if(q==='ar'||q==='en')localStorage.setItem('rr-lang',q);if((q||localStorage.getItem('rr-lang'))==='ar'){d.lang='ar';d.dir='rtl'}}catch(e){}})(document.documentElement);</script>
+</head>
+<body class="page">
+
+<a class="skip" href="#content">Skip to content</a>
+<canvas id="field" aria-hidden="true"></canvas>
+
+<header class="nav" id="nav">
+  <a class="nav__mark" href="index.html" aria-label="Rawan Roshni — home">
+    <img src="assets/img/logo-360.webp" alt="" width="180" height="185">
+  </a>
+  <nav class="nav__links" aria-label="Main">
+    <a href="calendar.html" data-chime="0">Calendar</a>
+    <a href="voice-liberation.html" data-chime="1">Voice Liberation</a>
+    <a href="action.html" data-chime="2">Action &amp; Zakat</a>
+    <a href="store.html" data-chime="3">Store</a>
+  </nav>
+  <div class="nav__end">
+    <button class="lang" type="button" data-lang aria-pressed="false"><span class="lang__en">EN</span><span class="lang__ar" lang="ar">ع</span></button>
+    <button class="snd" type="button" data-sound aria-pressed="false" aria-label="Sound: off">
+      <span class="snd__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="snd__label">Sound</span>
+    </button>
+    <a class="btn btn--ink nav__cta" href="index.html#book">Book</a>
+    <button class="nav__menu" type="button" aria-expanded="false" aria-controls="sheet" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="sheet" id="sheet" hidden>
+  <div class="sheet__cols">
+    <nav aria-label="The journey">
+      <p class="sheet__h">The journey</p>
+      <a href="index.html"><em>✦</em> Home <span lang="ar">روان</span></a>
+      <a href="index.html#voice"><em>I</em> The Voice <span lang="ar">الصوت</span></a>
+      <a href="index.html#whirl"><em>II</em> The Whirl <span lang="ar">الدوران</span></a>
+      <a href="index.html#resonance"><em>III</em> Resonance <span lang="ar">الرنين</span></a>
+      <a href="index.html#circle"><em>IV</em> The Circle <span lang="ar">الدائرة</span></a>
+      <a href="index.html#path"><em>·</em> The Flight Path <span lang="ar">المسار</span></a>
+      <a href="index.html#story"><em>·</em> Her Story <span lang="ar">الحكاية</span></a>
+    </nav>
+    <nav aria-label="Walk with her">
+      <p class="sheet__h">Walk with her</p>
+      <a href="calendar.html"><em>·</em> Calendar <span lang="ar">التقويم</span></a>
+      <a href="voice-liberation.html"><em>·</em> Voice Liberation <span lang="ar">تحرير الصوت</span></a>
+      <a href="action.html"><em>·</em> Action Options &amp; Zakat <span lang="ar">للفلسطينيّين</span></a>
+      <a href="store.html"><em>·</em> Store <span lang="ar">المتجر</span></a>
+      <a href="index.html#book"><em>·</em> Book Rawan <span lang="ar">الدعوة</span></a>
+    </nav>
+  </div>
+</div>
+
+<main id="content">
+
+  <section class="ehero" data-form="birds" data-alpha="0.5" data-screen="Gathering" data-event>
+    <div class="ehero__img" data-e-img></div>
+    <div class="move__sticky" data-anchor data-full style="position:absolute; inset:0; height:auto; margin:0"></div>
+    <div class="wrap">
+      <a class="crumb" href="calendar.html">The calendar</a>
+      <div class="ehero__top"><span data-e-kind></span><span class="countdown" data-e-count></span></div>
+      <h1 class="ehero__title" data-e-title>A gathering</h1>
+      <p class="ehero__meta">
+        <span><small>When</small><span data-e-when></span></span>
+        <span><small>Time</small><span data-e-time></span></span>
+        <span><small>Where</small><span data-e-where></span></span>
+      </p>
+      <p class="ehero__lede" data-e-lede></p>
+      <div class="phero__cta">
+        <a class="btn btn--candle" href="#reserve">Reserve your place</a>
+        <button class="btn btn--ghost" type="button" data-e-ics>+ Add to calendar</button>
+      </div>
+      <noscript><p>This page draws itself from the calendar. <a href="calendar.html">See the calendar</a>.</p></noscript>
+    </div>
+  </section>
+
+  <section class="block" data-form="drift" data-mood="amber" data-alpha="0.2" data-screen="The invitation" style="padding-top:0">
+    <div class="move__sticky" data-anchor data-full></div>
+    <div class="wrap ebody">
+      <div>
+        <section class="eabout">
+          <p class="eyebrow">The invitation</p>
+          <div data-e-about></div>
+        </section>
+        <section>
+          <h2>What is held</h2>
+          <ul class="includes" data-e-includes></ul>
+        </section>
+        <section>
+          <h2>The days</h2>
+          <ol class="days" data-e-days></ol>
+        </section>
+      </div>
+
+      <aside class="reserve" id="reserve">
+        <form data-reserve-form novalidate>
+          <p class="eyebrow eyebrow--candle">Your place</p>
+          <h2 data-reserve-title>Reserve your place</h2>
+          <div class="tiers" role="radiogroup" aria-label="Choose an option" data-tiers></div>
+          <div class="fields">
+            <div class="field"><span>Places</span>
+              <div class="qty"><button type="button" data-q="-1" aria-label="One fewer place">−</button><output data-qty>1</output><button type="button" data-q="1" aria-label="One more place">+</button></div>
+            </div>
+            <label class="field"><span>Your name</span><input name="name" autocomplete="name"></label>
+            <label class="field"><span>Email</span><input name="email" type="email" autocomplete="email"></label>
+            <label class="field"><span>Anything she should know</span><textarea name="note" rows="2" placeholder="Dietary needs, questions, a hello"></textarea></label>
+          </div>
+          <button class="btn btn--candle" type="submit" data-reserve-btn>Reserve my place</button>
+          <p class="fine">Your reservation is written as an email to Rawan, and she confirms your place herself.</p>
+        </form>
+        <div class="reserved" aria-live="polite">
+          <div class="reserved__mark" aria-hidden="true">✦</div>
+          <p class="big">Your request is written.</p>
+          <p data-reserved-what></p>
+          <p class="fine">Send the email that just opened, and Rawan will confirm your place.</p>
+          <button class="btn btn--ghost" type="button" data-e-ics>+ Add to calendar</button>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="others" data-form="drift" data-alpha="0.2" data-screen="More gatherings">
+    <div class="wrap">
+      <div class="block__head"><h2 class="block__title">Also coming</h2><a class="btn btn--ghost" href="calendar.html">The full calendar</a></div>
+      <ul data-others></ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__row">
+    <a href="index.html"><img class="foot__mark" src="assets/img/logo-360.webp" alt="Rawan Roshni — home" width="180" height="185" loading="lazy"></a>
+    <ul class="foot__pages" aria-label="Pages">
+      <li><a href="calendar.html">Calendar</a></li>
+      <li><a href="voice-liberation.html">Voice Liberation</a></li>
+      <li><a href="action.html">Action &amp; Zakat</a></li>
+      <li><a href="store.html">Store</a></li>
+      <li><a href="index.html#book">Book</a></li>
+    </ul>
+    <ul class="social" aria-label="Rawan online">
+      <li><a class="social__i" href="https://www.instagram.com/rawanroshniofficial/" target="_blank" rel="noopener" aria-label="Instagram" data-cursor="Instagram" style="--b:225,48,108"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="17.6" cy="6.4" r="1.4" fill="currentColor"/></svg></a></li>
+      <li><a class="social__i" href="https://open.spotify.com/artist/6M2g6Ypb0pPy4uFOaGkPOM" target="_blank" rel="noopener" aria-label="Spotify" data-cursor="Spotify" style="--b:30,215,96"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="currentColor"/><path d="M6.6 9.3c3.6-1.1 7.6-.8 10.9 1.1M7.3 12.4c3-.9 6.2-.5 8.8.9M8 15.3c2.3-.6 4.7-.3 6.7.7" fill="none" stroke="var(--night)" stroke-width="1.7" stroke-linecap="round"/></svg></a></li>
+      <li><a class="social__i" href="https://soundcloud.com/rawanroshni" target="_blank" rel="noopener" aria-label="SoundCloud" data-cursor="SoundCloud" style="--b:255,85,0"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.2 17.2v-4.1M4.6 17.2v-6.2M7 17.2V8.6M9.4 17.2V7.4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M11.4 17.2V7.6a4.6 4.6 0 0 1 7.9 2.9 3.4 3.4 0 0 1-.3 6.7H11.4z" fill="currentColor"/></svg></a></li>
+      <li><a class="social__i" href="https://www.youtube.com/c/RawanRoshni" target="_blank" rel="noopener" aria-label="YouTube" data-cursor="YouTube" style="--b:255,0,0"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4.6" width="21" height="14.8" rx="4.6" fill="currentColor"/><path d="M9.8 8.9v6.2l5.6-3.1z" fill="var(--night)"/></svg></a></li>
+    </ul>
+  </div>
+  <div class="wrap foot__base">
+    <p>© <span data-year>2026</span> Rawan Roshni. All rights reserved.</p>
+    <span class="zc">
+      <span class="zc__lead">Designed by</span>
+      <a class="zc__link" href="https://zyrn.org/" target="_blank" rel="noopener" aria-label="Zyrn — opens in a new tab">
+        <span class="glitch">
+          <span class="shear shear--auto" aria-hidden="true">
+            <span class="shear__half shear__half--top">ZYRN</span>
+            <span class="shear__half shear__half--bot">ZYRN</span>
+            <span class="shear__seam"></span>
+          </span>
+        </span>
+      </a>
+    </span>
+  </div>
+</footer>
+
+<div class="mobile-reserve"><span data-mobile-label></span><a class="btn btn--candle" href="#reserve">Reserve</a></div>
+
+<script src="assets/js/data.js" defer></script>
+<script src="assets/js/audio.js" defer></script>
+<script src="assets/js/field.js" defer></script>
+<script src="assets/js/i18n.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+<script src="assets/js/pages.js" defer></script>
+<script src="assets/js/zyrn-credit.js" defer></script>
+</body>
+</html>
