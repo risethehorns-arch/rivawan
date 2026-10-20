@@ -41,7 +41,7 @@
     [`<em>·</em> Store <span lang="ar">المتجر</span>`, `<em>·</em> المتجر <span lang="en">Store</span>`],
     [`<em>·</em> Book Rawan <span lang="ar">الدعوة</span>`, `<em>·</em> ادعُ روان <span lang="en">Book Rawan</span>`],
     [`© <span data-year="">2026</span> Rawan Roshni. All rights reserved.`, `© <span data-year="">2026</span> روان روشني. جميع الحقوق محفوظة.`],
-    [`Designed by`, `تصميم`],
+    [`Designed &amp; Powered by:`, `تصميم وتشغيل:`],
     [`Rawan Roshni`, `روان روشني`],
 
     /* ── threshold ── */

@@ -364,6 +364,7 @@
     set: setOn,
     hold: hold,
     chime: chime,
+    call: function (kind, pan) { if (!on || !ctx || !built) return; var t = ctx.currentTime + 0.03; (BIRDS[kind] || BIRDS.chirp)(t, voice(t, 0.9, pan == null ? 0.5 : pan)); },
     section: section,
     duck: function (v) { ducked = !!v; setMaster(level(), 0.6); }
   };

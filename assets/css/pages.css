@@ -649,32 +649,138 @@ a.add{text-decoration:none; display:inline-flex; align-items:center}
 /* tall portraits in the wide strips keep their faces: crop from the top, not the middle */
 .tri img, .strip img{object-position:50% 22%}
 
-/* ── footer: the platforms as icons, lit from within ─────────────────
-   Each glyph fills a ring that breathes a faint teal light. Under the
-   pointer (or on focus) the icon lights up in its own platform colour —
-   the ring, the glyph, the halo — carried in --b on each link. */
-.social{gap:12px; align-items:center}
-.social__i{
-  --g:84,199,168;
-  position:relative; display:grid; place-items:center; width:52px; height:52px; padding:0; border-radius:50%;
-  border:1px solid rgba(var(--g), .45); color:rgba(239,231,218,.9); background:radial-gradient(circle at 50% 38%, rgba(var(--g), .16), rgba(5,10,9,.5) 72%);
-  animation:breathe 4.2s ease-in-out infinite; animation-delay:calc(var(--k, 0) * -.9s);
-  transition:color .3s, border-color .3s, box-shadow .45s var(--ease), transform .45s var(--ease), background .3s;
+/* ── footer: the platforms, strung as a small harp ───────────────────
+   assets/js/strings.js adds .is-harp, draws the neck, the soundboard and
+   one string per platform, and sets each glyph's height on its string
+   (--y) and its swing (--dx). The platform's own colour is in --b. */
+.social{gap:14px; align-items:center}
+.social__i{display:grid; place-items:center; width:44px; height:44px; padding:0; border-radius:50%; color:var(--bone-2); transition:color .3s}
+.social__i svg{width:24px; height:24px; display:block}
+.social__i:hover, .social__i:focus-visible{color:rgb(var(--b))}
+.social.is-harp{position:relative; display:flex; flex-wrap:nowrap; align-items:stretch; gap:0; width:300px; max-width:100%; height:156px; padding:0 0 0 26px; box-sizing:border-box; touch-action:pan-y}
+.social.is-harp li{position:relative; flex:1 1 0; min-width:0; height:100%}
+.harp{position:absolute; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none}
+.harp__neck{fill:none; stroke:rgba(239,231,218,.3); stroke-width:1.4; stroke-linecap:round}
+.harp__board{fill:none; stroke:rgba(84,199,168,.45); stroke-width:1.2; stroke-linecap:round; filter:drop-shadow(0 0 6px rgba(84,199,168,.6))}
+.harp__crown{fill:rgba(84,199,168,.8); filter:drop-shadow(0 0 4px rgba(84,199,168,.9))}
+.harp__str{fill:none; stroke:rgba(239,231,218,.3); stroke-width:1.1; stroke-linecap:round}
+.social.is-harp .social__i{
+  position:absolute; left:50%; top:var(--y, 50%); width:44px; height:44px; margin:-22px 0 0 -22px; z-index:1;
+  transform:translateX(var(--dx, 0px)); color:rgba(239,231,218,.88);
+  background:radial-gradient(circle, var(--night) 46%, rgba(5,10,9,0) 70%);
 }
-.social li:nth-child(1) .social__i{--k:0} .social li:nth-child(2) .social__i{--k:1} .social li:nth-child(3) .social__i{--k:2} .social li:nth-child(4) .social__i{--k:3} .social li:nth-child(5) .social__i{--k:4}
-.social__i svg{width:32px; height:32px; display:block; filter:drop-shadow(0 0 5px rgba(var(--g), .7)); transition:filter .3s, transform .45s var(--ease)}
-.social__i::after{content:''; position:absolute; inset:-18px; border-radius:50%; background:radial-gradient(circle, rgba(var(--g), .34), rgba(var(--g), 0) 66%); opacity:0; transition:opacity .4s; pointer-events:none}
-@keyframes breathe{0%,100%{box-shadow:0 0 18px -3px rgba(var(--g), .5), inset 0 0 10px -6px rgba(var(--g), .6)}50%{box-shadow:0 0 34px -2px rgba(var(--g), .9), inset 0 0 14px -6px rgb(var(--g))}}
+.social.is-harp .social__i svg{width:23px; height:23px; transition:transform .5s var(--ease), filter .3s}
+.social.is-harp .social__i.is-plucked, .social.is-harp .social__i:focus-visible{color:rgb(var(--b)); outline:none}
+.social.is-harp .social__i.is-plucked svg, .social.is-harp .social__i:focus-visible svg{transform:scale(1.2); filter:drop-shadow(0 0 6px rgba(var(--b), .95)) drop-shadow(0 0 18px rgba(var(--b), .55))}
+.social.is-harp .social__i:focus-visible::before{content:''; position:absolute; inset:1px; border-radius:50%; border:1px solid rgba(var(--b), .8)}
+.harp__ring{position:absolute; left:50%; top:var(--y, 50%); width:44px; height:44px; margin:-22px 0 0 -22px; border-radius:50%; border:1px solid rgba(var(--b), .9); box-shadow:0 0 12px rgba(var(--b), .5); pointer-events:none; animation:harpRing 1.2s cubic-bezier(.2,.7,.3,1) forwards}
+@keyframes harpRing{0%{transform:scale(.55); opacity:.95}100%{transform:scale(2.7); opacity:0}}
+.harp__name{
+  position:absolute; left:var(--x, 50%); bottom:0; z-index:2; transform:translate(-50%, 6px); pointer-events:none; white-space:nowrap;
+  font:600 10px/1 var(--f-body); letter-spacing:.26em; text-indent:.26em; text-transform:uppercase;
+  color:rgb(var(--b, 239,231,218)); text-shadow:0 0 12px rgba(var(--b, 84,199,168), .7);
+  opacity:0; transition:opacity .3s, transform .45s var(--ease), left .35s var(--ease);
+}
+.harp__name.is-on{opacity:1; transform:translate(-50%, 0)}
+@media (prefers-reduced-motion:reduce){.harp__ring{display:none} .social.is-harp .social__i{transform:none}}
+
+/* ── the skip birds: through a long page a chapter at a time ─────────
+   assets/js/skip.js builds them on pages over four and a half screens.
+   A "v" bird points down (next chapter); the "^" bird above goes back.
+   --c is the chapter's light, --p how far through it you are. */
+.skipbirds{
+  --c:84,199,168; --p:0; --near:0; --lean:0deg; --lift:0px;
+  position:fixed; inset-inline-end:clamp(10px, 2vw, 28px); bottom:calc(clamp(14px, 3.4vh, 34px) + var(--lift) + env(safe-area-inset-bottom, 0px)); z-index:44;
+  display:flex; flex-direction:column; align-items:center;
+  opacity:0; visibility:hidden; transform:translateY(18px);
+  transition:opacity .5s var(--ease), transform .7s var(--ease), visibility 0s linear .5s;
+}
+.skipbirds.is-page.is-on{opacity:1; visibility:visible; transform:none; transition:opacity .5s var(--ease), transform .7s var(--ease), visibility 0s}
+.sb{position:relative; display:grid; place-items:center; width:54px; height:46px; padding:0; border:0; background:none; color:rgb(var(--c)); cursor:pointer; -webkit-tap-highlight-color:transparent; transition:opacity .35s, transform .45s var(--ease), color .6s}
+.sb::before{content:''; position:absolute; inset:0 4px; border-radius:50%; background:radial-gradient(closest-side, rgba(var(--c), .3), rgba(var(--c), 0)); opacity:calc(.3 + .7 * var(--near)); transform:scale(calc(.8 + .4 * var(--near))); transition:opacity .4s, transform .5s var(--ease)}
+.skipbirds:not(.has-up) .sb--up, .skipbirds:not(.has-down) .sb--down{opacity:0; pointer-events:none; transform:scale(.5)}
+.sb:focus-visible{outline:none}
+.sb:focus-visible::before{opacity:1; box-shadow:0 0 0 1px rgba(var(--c), .7)}
+.sb__bird{display:block; width:40px; height:22px; transform:rotate(var(--lean)); transition:transform .5s var(--ease)}
+.sb--up .sb__bird{transform:rotate(calc(180deg - var(--lean)))}
+.sb__svg{display:block; width:100%; height:100%; overflow:visible; filter:drop-shadow(0 0 6px rgba(var(--c), .8)); animation:sbBob 3.4s ease-in-out infinite}
+.sb--up .sb__svg{animation-delay:-1.7s}
+@keyframes sbBob{0%,100%{transform:translateY(-1.6px)}50%{transform:translateY(1.6px)}}
+.sbw path{fill:none; stroke:currentColor; stroke-width:2.3; stroke-linecap:round}
+.sbw .sbw__f{stroke-width:1.15; opacity:.55}
+.sbb{fill:currentColor}
+.sbw--l{transform-box:fill-box; transform-origin:100% 100%; animation:sbGlideL 3.2s ease-in-out infinite}
+.sbw--r{transform-box:fill-box; transform-origin:0% 100%; animation:sbGlideR 3.2s ease-in-out infinite}
+@keyframes sbGlideL{0%,100%{transform:rotate(4deg)}50%{transform:rotate(-9deg)}}
+@keyframes sbGlideR{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(9deg)}}
+@keyframes sbFlapL{0%,100%{transform:rotate(6deg)}50%{transform:rotate(-56deg)}}
+@keyframes sbFlapR{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(56deg)}}
+.sb.is-flick .sbw--l, .sb.is-calling .sbw--l, .sb.is-off .sbw--l{animation:sbFlapL .24s ease-in-out infinite}
+.sb.is-flick .sbw--r, .sb.is-calling .sbw--r, .sb.is-off .sbw--r{animation:sbFlapR .24s ease-in-out infinite}
 @media (hover:hover){
-  .social__i:hover, .social__i:focus-visible, .social__i.is-lit{
-    --g:var(--b); color:rgb(var(--b)); border-color:rgb(var(--b)); transform:translateY(-3px) scale(1.06); animation:none;
-    background:radial-gradient(circle at 50% 38%, rgba(var(--b), .22), rgba(5,10,9,.55) 72%);
-    box-shadow:0 0 0 1px rgba(var(--b), .55), 0 0 38px -2px rgba(var(--b), 1), 0 16px 44px -14px rgba(var(--b), .9), inset 0 0 16px -4px rgb(var(--b));
-  }
-  .social__i:hover::after, .social__i:focus-visible::after, .social__i.is-lit::after{opacity:1}
-  .social__i:hover svg, .social__i:focus-visible svg, .social__i.is-lit svg{filter:drop-shadow(0 0 8px rgb(var(--b))) drop-shadow(0 0 18px rgba(var(--b), .8)); transform:scale(1.08)}
-  /* Instagram's own gradient, for its ring and halo */
-  .social__i[aria-label="Instagram"]:hover, .social__i[aria-label="Instagram"]:focus-visible, .social__i[aria-label="Instagram"].is-lit{background:radial-gradient(circle at 30% 110%, rgba(253,176,34,.55), transparent 50%), radial-gradient(circle at 70% 10%, rgba(131,58,180,.6), transparent 55%), radial-gradient(circle at 50% 38%, rgba(225,48,108,.3), rgba(5,10,9,.55) 72%)}
+  .sb:hover .sbw--l{animation:sbFlapL .26s ease-in-out infinite}
+  .sb:hover .sbw--r{animation:sbFlapR .26s ease-in-out infinite}
+  .sb:hover::before{opacity:1; transform:scale(1.25)}
+  .sb:hover .sb__label{opacity:1; transform:translate(0, -50%) scale(1)}
 }
-.social__i:active{transform:translateY(-1px) scale(.97)}
-@media (prefers-reduced-motion:reduce){.social__i{animation:none}}
+.sb:active .sb__bird{scale:.88}
+
+/* the thread between them, and the bead: how far through this chapter */
+.sb__thread{position:relative; width:2px; height:58px; margin:1px 0; border-radius:2px; background:rgba(239,231,218,.14)}
+.sb__fill{position:absolute; left:0; right:0; top:0; height:calc(var(--p) * 100%); border-radius:2px; background:linear-gradient(rgba(var(--c), .15), rgb(var(--c))); box-shadow:0 0 8px rgba(var(--c), .7)}
+.sb__bead{position:absolute; left:50%; top:calc(var(--p) * 100%); width:7px; height:7px; margin:-3.5px 0 0 -3.5px; border-radius:50%; background:rgb(var(--c)); box-shadow:0 0 0 3px rgba(var(--c), .2), 0 0 12px rgb(var(--c))}
+.skipbirds:not(.has-up) .sb__thread{opacity:.5}
+
+/* the name of where it would take you */
+.sb__label{
+  position:absolute; inset-inline-end:calc(100% + 4px); top:50%; display:flex; flex-direction:column; align-items:flex-end; gap:4px;
+  padding:9px 14px 10px; border-radius:14px; white-space:nowrap; pointer-events:none;
+  background:rgba(5,10,9,.88); border:1px solid rgba(var(--c), .35);
+  box-shadow:0 12px 30px -14px rgba(0,0,0,.9), 0 0 26px -10px rgba(var(--c), .6);
+  opacity:0; transform:translate(12px, -50%) scale(.95); transform-origin:100% 50%;
+  transition:opacity .25s, transform .5s var(--ease);
+}
+[dir="rtl"] .sb__label{transform:translate(-12px, -50%) scale(.95); transform-origin:0 50%}
+.sb__label small{font:600 9.5px/1 var(--f-body); letter-spacing:.22em; text-transform:uppercase; color:rgb(var(--c))}
+.sb__label b{font:300 17px/1.1 var(--f-display); font-style:italic; color:var(--bone)}
+[lang="ar"] .sb__label small{font:400 12px/1.2 var(--f-ar-text); letter-spacing:0}
+[lang="ar"] .sb__label b{font:400 20px/1.2 var(--f-ar); font-style:normal}
+.sb:focus-visible .sb__label, .sb.is-calling .sb__label{opacity:1; transform:translate(0, -50%) scale(1)}
+.sb.is-off .sb__label{opacity:0 !important}
+
+/* a long chapter: the lower bird calls */
+.sb.is-calling .sb__bird{animation:sbHop .8s cubic-bezier(.3,1.7,.5,1) 3}
+@keyframes sbHop{0%,100%{translate:0 0}38%{translate:0 -8px}}
+.sb.is-calling::after{content:''; position:absolute; inset:4px 8px; border-radius:50%; border:1px solid rgba(var(--c), .85); animation:sbPulse 1s ease-out 3; pointer-events:none}
+@keyframes sbPulse{0%{transform:scale(.6); opacity:1}100%{transform:scale(1.9); opacity:0}}
+
+/* take-off and landing */
+.sb--down{--off:64px} .sb--up{--off:-64px}
+.sb.is-off .sb__bird{translate:0 var(--off); opacity:0; transition:translate .55s cubic-bezier(.55,0,.8,.2), opacity .45s .12s}
+.sb.is-land .sb__bird{animation:sbLand .85s cubic-bezier(.3,1.5,.5,1)}
+@keyframes sbLand{0%{translate:0 calc(var(--off) * -.6); opacity:0}55%{opacity:1}100%{translate:0 0; opacity:1}}
+
+/* the chapter's name, passing through the middle of the screen, and the flock */
+.sbcard{--c:84,199,168; position:fixed; left:50%; top:50%; z-index:43; display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center; white-space:nowrap; pointer-events:none; opacity:0; transform:translate(-50%, -50%)}
+.sbcard::before{content:''; position:absolute; left:50%; top:50%; z-index:-1; width:150%; height:280%; transform:translate(-50%, -50%); background:radial-gradient(closest-side, rgba(5,10,9,.9) 35%, rgba(5,10,9,0))}
+.sbcard small{font:600 12px/1 var(--f-body); letter-spacing:.42em; text-indent:.42em; color:rgb(var(--c)); text-shadow:0 0 14px rgba(var(--c), .9)}
+.sbcard small:empty{display:none}
+.sbcard b{font:200 clamp(42px, 8vw, 104px)/1.05 var(--f-display); font-style:italic; letter-spacing:-.02em; color:var(--bone); text-shadow:0 0 44px rgba(var(--c), .5)}
+[lang="ar"] .sbcard b{font:400 clamp(46px, 9vw, 110px)/1.3 var(--f-ar); font-style:normal; letter-spacing:0}
+.sbflock{position:fixed; inset:0; z-index:43; overflow:hidden; pointer-events:none}
+.sbflock__b{position:absolute; top:0; left:0; width:44px; height:24px; margin-left:-22px; color:rgb(var(--c)); filter:drop-shadow(0 0 6px rgba(var(--c), .85))}
+.sbflock__b svg{display:block; width:100%; height:100%; overflow:visible}
+.sbflock__b .sbw--l{animation:sbFlapL .22s ease-in-out infinite}
+.sbflock__b .sbw--r{animation:sbFlapR .22s ease-in-out infinite}
+
+@media (max-width:700px){
+  .sb{width:48px; height:42px}
+  .sb__bird{width:36px; height:20px}
+  .sb__thread{height:42px}
+  .sb__label b{font-size:15px}
+}
+@media (prefers-reduced-motion:reduce){
+  .sb__svg, .sbw--l, .sbw--r, .sb.is-calling .sb__bird, .sb.is-calling::after{animation:none !important}
+  .sb.is-off .sb__bird{translate:none; opacity:1}
+}
+

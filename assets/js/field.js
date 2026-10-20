@@ -493,6 +493,7 @@
   RR.field = {
     hold: function (v) { holding = !!v && !reduce; root.classList.toggle('is-holding', holding); },
     level: function (v) { lvlT = v; },
+    gust: function (v) { if (!reduce) swirlV += v; },
     turns: function () { return turns; },
     spin: function () { return spin; },
     open: function () { return open; },
