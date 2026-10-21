@@ -295,6 +295,8 @@
 .ocard:hover{border-color:rgba(233,165,91,.5); transform:translateY(-4px)}
 .ocard__img{display:block; aspect-ratio:16/10; border-radius:14px; overflow:hidden; margin-bottom:14px}
 .ocard__img img{width:100%; height:100%; object-fit:cover}
+/* the launch photograph (her poster shoot): her face sits left of centre, so every crop keeps it */
+img[src*="launch-jar"]{object-position:30% 38%}
 .ocard__d{display:block; margin:0 6px 4px; font:600 10.5px var(--f-body); letter-spacing:.16em; text-transform:uppercase; color:var(--candle)}
 .ocard__t{display:block; margin:0 6px; font:400 20px/1.2 var(--f-display)}
 .mobile-reserve{display:none}
@@ -315,6 +317,9 @@
 .vl-grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(30px, 6vw, 100px); align-items:start}
 .vl-grid p{color:var(--bone-2)}
 .vl-grid .big + p{color:var(--bone)}
+.vl-photo{margin:5vh 0 0}
+.vl-photo img{display:block; width:100%; aspect-ratio:16/10; object-fit:cover; object-position:60% 40%; border-radius:22px}
+.vl-photo.curtain{overflow:hidden; border-radius:22px}
 .vl-for{list-style:none; margin:0; padding:0}
 .vl-for li{display:flex; gap:14px; padding:14px 0; border-bottom:1px solid var(--line); font:300 clamp(19px, 1.6vw, 23px)/1.35 var(--f-display)}
 .vl-for li::before{content:'~'; color:var(--ink); font-style:italic}
@@ -514,8 +519,33 @@
 .quick__copy p{color:var(--bone-2)}
 .quick__price{font:300 32px var(--f-display); margin:10px 0 18px}
 .quick .drawer__x{position:absolute; right:16px; top:16px}
+/* round 5: a gallery, her specs, and choices (size, skin, print) */
+.quick{max-height:calc(100svh - 24px); overflow:auto; overscroll-behavior:contain}
+.quick__grid{grid-template-columns:minmax(0, 1fr) minmax(0, 1fr)}
+.quick__media{display:flex; flex-direction:column; min-width:0; background:var(--night-2)}
+.product__price small,.quick__price small{white-space:nowrap}
+.quick__media .quick__img{aspect-ratio:1; min-height:0}
+.quick__img video{display:block; width:100%; height:100%; object-fit:cover}
+.quick__cap{margin:0; padding:10px 16px 0; font:italic 300 15px/1.35 var(--f-display); color:var(--bone-2)}
+.quick__thumbs{display:flex; gap:8px; padding:12px 16px 16px; overflow-x:auto; scrollbar-width:none}
+.quick__thumbs::-webkit-scrollbar{display:none}
+.thumb{position:relative; flex:none; width:56px; height:56px; padding:0; border:1px solid var(--line-2); border-radius:10px; overflow:hidden; background:none; cursor:pointer; opacity:.6; transition:opacity .3s, border-color .3s}
+.thumb img{width:100%; height:100%; object-fit:cover}
+.thumb:hover,.thumb[aria-current="true"]{opacity:1; border-color:var(--candle)}
+.thumb--video::after{content:''; position:absolute; left:50%; top:50%; margin:-7px 0 0 -5px; border:7px solid transparent; border-left:11px solid var(--bone); filter:drop-shadow(0 0 4px rgba(0,0,0,.7))}
+.quick__specs{list-style:none; margin:6px 0 4px; padding:0; display:grid; gap:6px}
+.quick__specs li{display:flex; gap:10px; font-size:14.5px; line-height:1.4; color:var(--bone-2)}
+.quick__specs li::before{content:'~'; color:var(--candle); font-style:italic}
+.opts{display:grid; gap:14px; margin:12px 0 0}
+.opts:empty{display:none}
+.opt__n{margin:0 0 8px; font:600 10px var(--f-body); letter-spacing:.18em; text-transform:uppercase; color:var(--bone-3)}
+.opt__c{display:flex; flex-wrap:wrap; gap:8px}
+.opt__c button{min-height:42px; padding:0 16px; border:1px solid var(--line-2); border-radius:99px; background:none; color:var(--bone-2); cursor:pointer; font:400 14px var(--f-body); transition:all .3s}
+.opt__c button:hover{border-color:var(--bone); color:var(--bone)}
+.opt__c button[aria-pressed="true"]{border-color:var(--candle); background:rgba(233,165,91,.14); color:var(--bone)}
+.line__o{margin:-2px 0 8px; font-size:12.5px; color:var(--bone-3)}
 @media (max-width:1080px){.products{grid-template-columns:repeat(3, 1fr)}}
-@media (max-width:800px){.products{grid-template-columns:1fr 1fr; gap:10px}.product__t{font-size:18px}.product__end{flex-direction:column; align-items:stretch}.quick__grid{grid-template-columns:1fr}.quick__img{min-height:240px}}
+@media (max-width:800px){.products{grid-template-columns:1fr 1fr; gap:10px}.product__t{font-size:18px}.product__end{flex-direction:column; align-items:stretch}.quick__grid{grid-template-columns:minmax(0, 1fr)}.quick__img{min-height:240px}}
 
 @media (prefers-reduced-motion:reduce){
   .ehero__img img{animation:none}

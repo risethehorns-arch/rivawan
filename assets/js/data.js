@@ -30,10 +30,10 @@
     gatherings: [
       { slug: 'the-launch', kind: 'launch', feature: true,
         title: '11.11 — The Launch', start: '2026-11-11', time: 'Evening · details to come',
-        place: 'Amman', country: 'Jordan', img: 'birdsong-oracle', status: 'soon', free: true,
+        place: 'Amman', country: 'Jordan', img: 'launch-jar', status: 'soon', free: true,
         lede: 'One night: the release of “Dragonfly” and its music video, the documentary behind it, a new chapter with Aswatna — and the launch of this platform.',
         about: [
-          'Join us as we gather for the release of Rawan Roshni’s latest single, “Dragonfly”, with its groundbreaking music video co-produced, shot and edited by Bermudafide — alongside the behind-the-scenes documentary of this incredible experience.',
+          'Join us as we gather for the release of Rawan Roshni’s latest single, “Dragonfly”, with its groundbreaking music video co-produced, shot and edited by Bermudafied — alongside the behind-the-scenes documentary of this incredible experience.',
           'We also come together to celebrate her signing with the Palestinian music management and booking agency Aswatna. And to top it all off, we will be in awe as she launches her epic new platform by ZYRN.',
           'The venue, the poster and the RSVP are on their way. Leave your name below and you will be the first to hear.'
         ],
@@ -56,12 +56,32 @@
 
     /* ── the store ─────────────────────────────────────────────────────
        price: number, or null with `priceText`; `approx: true` shows "from";
-       `cta` + `link` replace the bag for things that begin with a conversation */
+       `cta` + `link` replace the bag for things that begin with a conversation.
+       Round 5 (her spec sheets): `options` [{name, choices:[[value, label]]}] are chosen in the quick view;
+       `prices` maps the chosen values joined by "|" to a price (else `price` holds for every choice);
+       `specs` is a short list; `gallery` [[image, caption, 'video'?]] — a video is assets/video/<name>.mp4
+       with assets/img/<name>.webp as its poster. */
     products: [
-      { id: 'shamanic-bendir', cat: 'objects', title: 'The Shamanic Bendir', by: 'A Turkish frame drum, in fusion with the shamanic drum', kind: 'Object · made in Istanbul / Fethiye', price: 250, cur: 'USD', approx: true, ship: true, img: 'bendir-siwa',
-        about: 'Much like the ally Rawan carries on her own journey. From the atelier she trusts in Istanbul and Fethiye, each drum has a unique sound and soul. Played like a daff or bendir with the hands and fingers, or held by its back and played with a stick in the shamanic tradition. Inflatable, so it can be tuned to any tone — and does not change with heat, dryness or damp.' },
-      { id: 'whirling-skirt', cat: 'objects', title: 'Wonders of Whirling Skirts', by: 'Co-designed by Rawan Roshni & Ziya Kocaturk', kind: 'Object · made to order', price: 300, cur: 'USD', approx: true, ship: true, img: 'whirl-red-motion',
-        about: 'Choose from the Islamic geometric patterns we have listed — or bring an image you desire; that is customisable too. Once printed, Ziya designs, cuts and shapes the skirt for beautiful movement in the whirling dance: waves of colour for any whirler at any stage, from beginner to advanced. An adjustable waist, so one size fits all, and a lighter fabric, so it lifts and spins without asking too much of you.' },
+      { id: 'shamanic-bendir', cat: 'objects', title: 'Noor · The Shamanic Bendir', by: 'Noor Rhythms · with a Turkish luthier', kind: 'Object · hand-made to order', price: 400, cur: 'USD', approx: true, ship: true, img: 'noor-tree',
+        about: 'Noor is the Arabic word for light. Noor Rhythms is Rawan’s collaboration with one of the finest Turkish luthiers of shamanic bendirs: a fusion of the Turkish frame drum and the shamanic drum found in cultures across the globe. Its rim is inflatable — pump it up or let it down to the tone you wish — so it stays tuned through heat and damp. Play it the Eastern way, with your fingers, or the shamanic way, with the stick, holding it by the handle at the back. Every material is sourced ethically and locally: goat or deer skin, Anatolian beech wood, sheep leather on the handles. Each drum is made by hand, with prayers whispered into it and melodies sung into it. From their loving hands to yours.',
+        options: [{ name: 'Size', choices: [['petite', 'Petite · 37 cm'], ['complete', 'Complete · 45 cm']] },
+                  { name: 'Skin', choices: [['goat', 'Goat skin'], ['deer', 'Deer skin']] }],
+        prices: { 'petite|goat': 400, 'petite|deer': 600, 'complete|goat': 500, 'complete|deer': 800 },
+        specs: ['Petite: 37 cm wide, 6 cm deep', 'Complete: 45 cm wide, 11 cm deep', 'An inflatable rim, tuned with the pump', 'Stick, pump and bag included', 'Made from scratch in 3 days', 'Shipping is added to the price'],
+        gallery: [['noor-tree', 'Hand-painted: Tree of Life'], ['noor-shahmaran', 'Hand-painted: Shahmaran, the Kurdish goddess'], ['noor-horse', 'Hand-painted: Feminine horse spirit'],
+                  ['noor-cave', 'Hand-painted: Cave drawings'], ['noor-symbols', 'Hand-painted: Indigenous Turkish symbols'], ['noor-kit', 'The drum, the stick and the pump'],
+                  ['noor-depth', 'The Complete: 11 cm deep'], ['noor-rim', 'The inflatable rim'], ['noor-light', 'Noor — light — on the handle'], ['noor-stick', 'The stick and the handle'], ['noor-skin', 'The skin']] },
+      { id: 'whirling-skirt', cat: 'objects', title: 'Wonders of Whirling Skirts', by: 'Co-designed by Rawan Roshni & Ziya Kocaturk', kind: 'Object · made to order', price: 300, cur: 'USD', approx: true, ship: true, img: 'skirt-motion',
+        about: 'The Wonders of Whirling workshop has been spinning across the globe since 2017, and now the skirts are here for you too. Rawan and the Turkish fashion designer Ziya Kocaturk chose a light fabric, in a cut that makes waves as the whirler spins, with metal chains along the edges for a larger field of movement. Choose a print of Islamic art or of Palestinian embroidery — or bring an image you desire; that is customisable too. Each skirt is made for you on order, one size fits all, and it will lift your whirling at any level, from beginner to advanced.',
+        options: [{ name: 'Print', choices: [['islamic', 'Islamic art'], ['tatreez', 'Palestinian embroidery']] }],
+        specs: ['A light fabric, cut to make waves as you turn', 'Metal chains along the edges', 'Prints of Islamic art or Palestinian embroidery', 'One size fits all', 'Made for you, to order'],
+        gallery: [['skirt-motion', 'In motion', 'video'], ['whirl-red-motion', 'Wonders of Whirling at the Freedom Theatre Festival, Amman']] },
+      { id: 'reesheh-wings', cat: 'objects', title: 'Reesheh Wings · Winged Ear Cuffs', by: 'With a craft artist in Jordan who cares for birds', kind: 'Object · hand-made to order', price: 155, cur: 'USD', ship: true, img: 'reesheh-white',
+        about: 'Reesheh is the Arabic word for feather. Reesheh Wings is Rawan’s collaboration with a craft artist in Jordan who is a caretaker of birds: ear cuffs of ethically sourced feathers, bound with copper or silver and local dried olive seeds — your very own wings, to wear when you feel ready to connect to the bird spirit and fly, from parties to ceremonies. The feathers are only those that fall naturally and are gathered, so every piece is woven with your destiny: when you order, the wings appear in their own timing for you, and no two are alike. The photographs show pieces already made.',
+        specs: ['Dove or parrot feathers, or both', 'A copper cuff with spirals', 'Dried olive seeds', 'Made by hand in 3 days', 'Shipping is added to the price'],
+        gallery: [['reesheh-white', 'Dove wing feathers, dried olive seeds, copper'], ['reesheh-dove-parrot', 'Dove and parrot, copper, olive seed'],
+                  ['reesheh-glass', 'Parrot and dove feathers, copper, olive seeds, glass beads'], ['reesheh-parrot', 'Parrot feather, wooden beads, copper'],
+                  ['reesheh-silver', 'Silver, dove and parrot, olive seed'], ['reesheh-dangling', 'Dangling dove feathers, copper wire, olive seed']] },
       { id: 'custom-chant', cat: 'recordings', title: 'A Meditation or Chant in Rawan’s Voice', by: 'Custom-made, for you', kind: 'Recording · by consultation', price: null, priceText: 'By consultation', cta: 'Book a consultation', link: 'voice-liberation.html#booking', img: 'birdsong-feathers',
         about: 'Clients have asked for — and ordered — these simple, soulful, repetitive meditations and chants for their retreats, their own clients, and their private practice at home. To sing with, to listen and relax, or for processes of release and transformation. Book a consultation call with Rawan to discuss and shape your order.' },
       { id: 'tuning-the-lataif', cat: 'courses', title: 'Tuning the Lata’if', by: 'An online course', kind: 'Course · pre-recorded · coming soon', price: null, priceText: 'Coming soon', cta: 'Pre-order', link: 'mailto:rawan.roshni@gmail.com?subject=Pre-order%3A%20Tuning%20the%20Lata%E2%80%99if', badge: 'Pre-order', img: 'tuyoor-candles',

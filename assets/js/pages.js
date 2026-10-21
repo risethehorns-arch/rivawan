@@ -390,16 +390,40 @@
     });
   }
 
-  /* ── the store ───────────────────────────────────────────────────── */
+  /* ── the store ───────────────────────────────────────────────────────
+     A line in the bag is keyed by the product and, when it has options, the
+     values chosen: "shamanic-bendir|petite|goat". Products with options are
+     chosen in the quick view (its gallery, specs and price follow the choice). */
   var shop = $('[data-store]');
   if (shop) {
     var CATS = [['all', 'All'], ['objects', 'Objects'], ['recordings', 'Recordings'], ['courses', 'Courses'], ['music', 'Music'], ['gifts', 'Gifts']];
     var CAT_NAME = { music: 'Music', recordings: 'Recording', gifts: 'Gift', objects: 'Object', courses: 'Course' };
-    function priceOf(p) { return p.price ? (p.approx ? 'from ' : '') + F.money(p.price, p.cur) + (p.ship ? ' <small>+ shipping</small>' : '') : (p.priceText || 'On request'); }
-    function ctaOf(p) { return p.link ? '<a class="add" href="' + esc(p.link) + '">' + esc(p.cta || 'Enquire') + '</a>' : '<button type="button" class="add" data-add="' + p.id + '">Add to bag</button>'; }
+    var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
     var byId = {}; D.products.forEach(function (p) { byId[p.id] = p; });
+    function unit(p, vals) { return p.prices ? p.prices[vals.join('|')] : p.price; }
+    function lowest(p) { return p.prices ? Math.min.apply(null, Object.keys(p.prices).map(function (k) { return p.prices[k]; })) : p.price; }
+    // the price for a choice when one is made; otherwise "from" the lowest
+    function priceOf(p, vals) {
+      var exact = !!(vals && p.prices), n = exact ? unit(p, vals) : lowest(p);
+      // the amount is isolated so the Arabic line reads ابتداءً من $400, not 400$
+      return n ? (p.approx && !exact ? '<span>from</span> ' : '') + '<bdi>' + F.money(n, p.cur) + '</bdi>' + (p.ship ? ' <small>+ shipping</small>' : '') : esc(p.priceText || 'On request');
+    }
+    function labels(p, vals) {
+      return (p.options || []).map(function (o, i) { var c = o.choices.filter(function (c) { return c[0] === vals[i]; })[0]; return c ? c[1] : vals[i]; });
+    }
+    // each label in its own span, so the Arabic dictionary can find it
+    function spans(list) { return list.map(function (t) { return '<span>' + esc(t) + '</span>'; }).join(' · '); }
+    function parse(k) { var a = k.split('|'); return { p: byId[a[0]], vals: a.slice(1) }; }
+    function ctaOf(p) {
+      if (p.link) return '<a class="add" href="' + esc(p.link) + '">' + esc(p.cta || 'Enquire') + '</a>';
+      if (p.options) return '<button type="button" class="add" data-quick="' + p.id + '">Choose yours</button>';
+      return '<button type="button" class="add" data-add="' + p.id + '">Add to bag</button>';
+    }
     var bag = store.get('rr-bag', {});
-    Object.keys(bag).forEach(function (k) { if (!byId[k]) delete bag[k]; });
+    Object.keys(bag).forEach(function (k) {
+      var b = parse(k);
+      if (!b.p || (b.p.options || []).length !== b.vals.length || unit(b.p, b.vals) == null) delete bag[k];
+    });
 
     var grid = $('[data-products]');
     D.products.forEach(function (p) {
@@ -407,7 +431,7 @@
       li.className = 'product'; li.dataset.cat = p.cat;
       li.innerHTML = '<div class="product__badge">' + (p.badge ? '<span class="tag">' + esc(p.badge) + '</span>' : '') + (p.sample ? SAMPLE : '') + '</div>' +
         '<button type="button" class="product__img' + (p.contain ? ' is-contain' : '') + '" data-quick="' + p.id + '" aria-label="More about ' + esc(p.title) + '">' + RR.img(p.img, '(max-width:800px) 46vw, 23vw') + '</button>' +
-        '<div class="product__body"><span class="product__cat">' + CAT_NAME[p.cat] + '</span><h3 class="product__t">' + esc(p.title) + '</h3><p class="product__by">' + esc(p.by) + ' · ' + esc(p.kind) + '</p></div>' +
+        '<div class="product__body"><span class="product__cat">' + CAT_NAME[p.cat] + '</span><h3 class="product__t">' + esc(p.title) + '</h3><p class="product__by">' + spans([p.by, p.kind]) + '</p></div>' +
         '<div class="product__end"><span class="product__price">' + priceOf(p) + '</span>' + ctaOf(p) + '</div>';
       grid.appendChild(li);
     });
@@ -435,11 +459,12 @@
       list.innerHTML = '';
       var sum = 0;
       Object.keys(bag).forEach(function (k) {
-        var p = byId[k], q = bag[k]; sum += (p.price || 0) * q;
+        var b = parse(k), p = b.p, q = bag[k], u = unit(p, b.vals) || 0, opt = labels(p, b.vals); sum += u * q;
         var li = document.createElement('li'); li.className = 'line';
         li.innerHTML = '<span class="line__img">' + RR.img(p.img, '72px') + '</span>' +
-          '<div><p class="line__t">' + esc(p.title) + '</p><div class="qty"><button type="button" data-dq="-1" aria-label="One fewer">−</button><output>' + q + '</output><button type="button" data-dq="1" aria-label="One more">+</button></div></div>' +
-          '<div><span class="line__p">' + F.money(p.price * q, p.cur) + '</span><button type="button" class="line__rm">Remove</button></div>';
+          '<div><p class="line__t">' + esc(p.title) + '</p>' + (opt.length ? '<p class="line__o">' + spans(opt) + '</p>' : '') +
+          '<div class="qty"><button type="button" data-dq="-1" aria-label="One fewer">−</button><output>' + q + '</output><button type="button" data-dq="1" aria-label="One more">+</button></div></div>' +
+          '<div><span class="line__p">' + F.money(u * q, p.cur) + '</span><button type="button" class="line__rm">Remove</button></div>';
         $$('[data-dq]', li).forEach(function (b) { b.addEventListener('click', function () { bag[k] = Math.max(0, Math.min(9, bag[k] + +b.dataset.dq)); if (!bag[k]) delete bag[k]; save(); }); });
         $('.line__rm', li).addEventListener('click', function () { delete bag[k]; save(); });
         list.appendChild(li);
@@ -450,10 +475,10 @@
       $$('[data-add]').forEach(function (b) { var inBag = !!bag[b.dataset.add]; b.classList.toggle('is-added', inBag); b.textContent = inBag ? 'In your bag' : 'Add to bag'; });
     }
     function save() { store.set('rr-bag', bag); render(); }
-    function add(id) {
-      bag[id] = Math.min(9, (bag[id] || 0) + 1); save();
+    function add(key) {
+      bag[key] = Math.min(9, (bag[key] || 0) + 1); save();
       bagBtn.classList.remove('is-bump'); void bagBtn.offsetWidth; bagBtn.classList.add('is-bump');
-      if (RR.audio && RR.audio.on) RR.audio.chime(D.products.indexOf(byId[id]));
+      if (RR.audio && RR.audio.on) RR.audio.chime(D.products.indexOf(parse(key).p));
     }
     shop.addEventListener('click', function (e) {
       var a = e.target.closest('[data-add]'); if (a) { add(a.dataset.add); return; }
@@ -465,23 +490,61 @@
     [drawer, $('[data-quickview]')].forEach(function (d) { d.addEventListener('click', function (e) { if (e.target === d) d.close(); }); });
     $('[data-checkout]').addEventListener('click', function () {
       var lines = ['Dear Rawan,', '', 'I would like to order:'];
-      Object.keys(bag).forEach(function (k) { lines.push('  · ' + bag[k] + ' × ' + byId[k].title + ' — ' + F.money(byId[k].price * bag[k], byId[k].cur)); });
+      Object.keys(bag).forEach(function (k) {
+        var b = parse(k), opt = labels(b.p, b.vals).join(', ');
+        lines.push('  · ' + bag[k] + ' × ' + b.p.title + (opt ? ' (' + opt + ')' : '') + ' — ' + F.money((unit(b.p, b.vals) || 0) * bag[k], b.p.cur));
+      });
       lines.push('', 'With warmth,');
       mailto(mail, 'An order from the store', lines);
       $('[data-checkout-note]').textContent = 'Your order is written as an email to Rawan. She replies to confirm it, with shipping and how to pay.';
     });
-    var qd = $('[data-quickview]');
+
+    // the quick view: a gallery (a video plays silently, on a loop), the words, the choices, the price
+    var qd = $('[data-quickview]'), cur = null, sel = [];
+    function show(i) {
+      var gal = cur.gallery || [[cur.img, '']], g = gal[i], box = $('.quick__img', qd);
+      box.className = 'quick__img' + (cur.contain ? ' is-contain' : '');
+      box.innerHTML = g[2] === 'video'
+        ? '<video src="assets/video/' + g[0] + '.mp4" poster="assets/img/' + g[0] + '.webp" muted loop playsinline preload="metadata"' + (reduce ? ' controls' : ' autoplay') + '></video>'
+        : RR.img(g[0], '(max-width:800px) 94vw, 450px');
+      var cap = $('[data-q-cap]', qd); cap.textContent = g[1] || ''; cap.hidden = !g[1];
+      $$('[data-g]', qd).forEach(function (t) { t.setAttribute('aria-current', +t.dataset.g === i ? 'true' : 'false'); });
+    }
+    function choose() {
+      var key = [cur.id].concat(sel).join('|');
+      $('[data-q-price]', qd).innerHTML = priceOf(cur, cur.options ? sel : null);
+      var qa = $('[data-q-add]', qd);
+      if (cur.link) delete qa.dataset.add; else qa.dataset.add = key;
+      qa.textContent = cur.link ? (cur.cta || 'Enquire') : bag[key] ? 'In your bag' : 'Add to bag';
+      $$('[data-o]', qd).forEach(function (b) { b.setAttribute('aria-pressed', sel[+b.dataset.o] === b.dataset.v ? 'true' : 'false'); });
+    }
     function openQuick(p) {
-      $('.quick__img', qd).className = 'quick__img' + (p.contain ? ' is-contain' : '');
-      $('.quick__img', qd).innerHTML = RR.img(p.img, '(max-width:800px) 94vw, 450px');
+      cur = p; sel = (p.options || []).map(function (o) { return o.choices[0][0]; });
+      var gal = p.gallery || [[p.img, '']];
+      $('[data-q-thumbs]', qd).innerHTML = gal.length < 2 ? '' : gal.map(function (g, i) {
+        return '<button type="button" class="thumb' + (g[2] === 'video' ? ' thumb--video' : '') + '" data-g="' + i + '" aria-label="' + esc(g[1] || 'Photograph ' + (i + 1)) + '">' + RR.img(g[0], '64px') + '</button>';
+      }).join('');
       $('[data-q-cat]', qd).innerHTML = CAT_NAME[p.cat] + (p.sample ? ' ' + SAMPLE : '');
       $('[data-q-title]', qd).textContent = p.title;
-      $('[data-q-by]', qd).textContent = p.by + ' · ' + p.kind;
+      $('[data-q-by]', qd).innerHTML = spans([p.by, p.kind]);
       $('[data-q-about]', qd).textContent = p.about;
-      $('[data-q-price]', qd).innerHTML = priceOf(p);
-      var qa = $('[data-q-add]', qd); qa.dataset.add = p.id; qa.textContent = p.link ? (p.cta || 'Enquire') : 'Add to bag'; qa.dataset.link = p.link || '';
+      $('[data-q-specs]', qd).innerHTML = (p.specs || []).map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('');
+      $('[data-q-opts]', qd).innerHTML = (p.options || []).map(function (o, i) {
+        return '<div class="opt"><p class="opt__n">' + esc(o.name) + '</p><div class="opt__c" role="group" aria-label="' + esc(o.name) + '">' +
+          o.choices.map(function (c) { return '<button type="button" data-o="' + i + '" data-v="' + esc(c[0]) + '" aria-pressed="false">' + esc(c[1]) + '</button>'; }).join('') + '</div></div>';
+      }).join('');
+      $('[data-q-add]', qd).dataset.link = p.link || '';
+      show(0); choose();
       openDlg(qd);
+      qd.scrollTop = 0;
     }
+    qd.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-g]'); if (t) { show(+t.dataset.g); return; }
+      var o = e.target.closest('[data-o]'); if (o) { sel[+o.dataset.o] = o.dataset.v; choose(); }
+    });
+    // nothing keeps playing behind a closed dialog
+    // (the close event comes a moment later: if another product was opened meanwhile, leave it be)
+    qd.addEventListener('close', function () { if (!qd.open) $('.quick__img', qd).innerHTML = ''; });
     $('[data-q-add]', qd).addEventListener('click', function (e) { var l = e.currentTarget.dataset.link; if (l) { location.href = l; return; } add(e.currentTarget.dataset.add); qd.close(); openDlg(drawer); });
     render();
   }

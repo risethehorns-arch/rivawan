@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Store — Rawan Roshni</title>
-<meta name="description" content="Music, recorded sound journeys, gifts and objects from Rawan Roshni.">
+<meta name="description" content="Hand-made drums, whirling skirts and feather ear cuffs, and chants in her voice, from Rawan Roshni.">
 <meta name="theme-color" content="#050A09">
 <link rel="icon" href="favicon.png" type="image/png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Store — Rawan Roshni">
-<meta property="og:description" content="Music, recorded sound journeys, gifts and objects from Rawan Roshni.">
+<meta property="og:description" content="Hand-made drums, whirling skirts and feather ear cuffs, and chants in her voice, from Rawan Roshni.">
 <meta property="og:image" content="https://rivawan.com/assets/img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -82,7 +82,7 @@
       <a class="crumb" href="index.html">Rawan Roshni</a>
       <p class="eyebrow eyebrow--candle">Take something home</p>
       <h1 class="phero__title">The <em>store</em> <span lang="ar" class="ar">المتجر</span></h1>
-      <p class="phero__lede">Music, recorded sound journeys, gifts for someone you love, and objects made for the turn.</p>
+      <p class="phero__lede">Drums, whirling skirts and feather wings, hand-made with the artisans she works with — and chants in her own voice.</p>
       <div class="phero__cta"><a class="btn btn--candle" href="#shop">Browse</a></div>
     </div>
     <div class="phero__stage" data-anchor></div>
@@ -93,7 +93,7 @@
     <div class="wrap">
       <div class="shop-tools">
         <div class="filters" role="group" aria-label="Show" data-cats></div>
-        <p class="fine" style="margin:0">Digital items arrive by email. Objects ship from Amman.</p>
+        <p class="fine" style="margin:0">Digital items arrive by email. Objects are hand-made to order; shipping is added when Rawan confirms.</p>
       </div>
       <ul class="products" data-products></ul>
     </div>
@@ -137,7 +137,7 @@
 
 <button class="bag-btn" type="button" data-bag-btn hidden aria-label="Open your bag">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-  Your bag <b>0</b>
+  <span>Your bag</span> <b>0</b>
 </button>
 <dialog class="drawer" data-drawer aria-label="Your bag">
   <div class="drawer__head"><h2>Your bag</h2><button class="drawer__x" type="button" data-close aria-label="Close">×</button></div>
@@ -150,13 +150,19 @@
 </dialog>
 <dialog class="quick" data-quickview aria-label="Product">
   <div class="quick__grid">
-    <div class="quick__img"></div>
+    <div class="quick__media">
+      <div class="quick__img"></div>
+      <p class="quick__cap" data-q-cap hidden></p>
+      <div class="quick__thumbs" data-q-thumbs></div>
+    </div>
     <div class="quick__copy">
       <button class="drawer__x" type="button" data-close aria-label="Close">×</button>
       <p class="eyebrow" data-q-cat></p>
       <h2 data-q-title></h2>
       <p class="fine" data-q-by></p>
       <p data-q-about></p>
+      <ul class="quick__specs" data-q-specs></ul>
+      <div class="opts" data-q-opts></div>
       <p class="quick__price" data-q-price></p>
       <button class="btn btn--candle" type="button" data-q-add>Add to bag</button>
     </div>

@@ -155,6 +155,8 @@
     [`Conscious Communication: Community Tools`, `التواصل الواعي: أدوات مجتمعيّة`],
     [`Desert circle`, `دائرة في الصحراء`], [`The huddle`, `العناق الجماعيّ`], [`Singing with children`, `الغناء مع الأطفال`],
     [`Community workshop`, `ورشة مجتمعيّة`], [`Walking together`, `نمشي معاً`], [`Sound circle`, `دائرة صوت`],
+    [`Wonders of Whirling, Amman`, `عجائب الدوران، عمّان`], [`Manna Gathering`, `ملتقى مانا`],
+    [`Synesthesia Festival, Portugal`, `مهرجان سينستيزيا، البرتغال`], [`Conscious Sexuality workshop`, `ورشة الجنسانيّة الواعية`],
     [`Drag to turn the circle`, `اسحب لتدير الدائرة`],
 
     /* ── the flight path ── */
@@ -296,8 +298,8 @@
     /* store */
     [`Take something home`, `خُذ شيئاً إلى بيتك`],
     [`The <em>store</em> <span lang="ar" class="ar">المتجر</span>`, `المتجر <span lang="en" class="ar">The store</span>`],
-    [`Music, recorded sound journeys, gifts for someone you love, and objects made for the turn.`, `موسيقى، ورحلاتٌ صوتيّة مسجّلة، وهدايا لمن تحبّ، وأغراضٌ صُنعت للدوران.`],
-    [`Browse`, `تصفّح`], [`Digital items arrive by email. Objects ship from Amman.`, `تصل المنتجات الرقميّة بالبريد الإلكتروني. وتُشحن الأغراض من عمّان.`],
+    [`Drums, whirling skirts and feather wings, hand-made with the artisans she works with — and chants in her own voice.`, `طبولٌ وتنانير للدوران وأجنحةٌ من ريش، تُصنع يدويّاً مع الحِرَفيّين الذين تعمل معهم — وترانيم بصوتها.`],
+    [`Browse`, `تصفّح`], [`Digital items arrive by email. Objects are hand-made to order; shipping is added when Rawan confirms.`, `تصل المنتجات الرقميّة بالبريد الإلكترونيّ. أمّا الأغراض فتُصنع يدويّاً حسب الطلب، ويُضاف الشحن حين تؤكّد روان طلبك.`],
     [`Your bag`, `حقيبتك`], [`Total`, `المجموع`], [`Checkout`, `الدفع`], [`Add to bag`, `أضِف إلى الحقيبة`], [`In your bag`, `في حقيبتك`],
     [`Music`, `موسيقى`], [`Recording`, `تسجيل`], [`Gift`, `هديّة`], [`Object`, `غرض`],
     /* ── round 4: Aswatna, the launch, the Path of Love, the store, the Action page ── */
@@ -336,6 +338,36 @@
     [`Wonders of Whirling Skirts`, `تنانير عجائب الدوران`], [`Co-designed by Rawan Roshni &amp; Ziya Kocaturk`, `بتصميمٍ مشترك من روان روشني وضياء كوجاتورك`], [`Object · made to order`, `غرض · يُصنع حسب الطلب`],
     [`A Meditation or Chant in Rawan’s Voice`, `تأمّلٌ أو ترنيمة بصوت روان`], [`Custom-made, for you`, `يُصنع خصّيصاً لك`], [`Recording · by consultation`, `تسجيل · بالاستشارة`],
     [`Tuning the Lata’if`, `ضبط اللطائف`], [`An online course`, `دورة عبر الإنترنت`], [`Course · pre-recorded · coming soon`, `دورة · مسجّلة · قريباً`],
+    /* the store, round 5: her spec sheets (Noor Rhythms, the skirts, Reesheh Wings) — draft Arabic for her to check */
+    [`from`, `ابتداءً من`], [`Choose yours`, `اختر ما يناسبك`], [`Remove`, `إزالة`],
+    [`Size`, `الحجم`], [`Skin`, `الجلد`], [`Print`, `النقشة`],
+    [`Petite · 37 cm`, `الصغير · 37 سم`], [`Complete · 45 cm`, `الكامل · 45 سم`], [`Goat skin`, `جلد ماعز`], [`Deer skin`, `جلد غزال`],
+    [`Islamic art`, `فنّ إسلاميّ`], [`Palestinian embroidery`, `تطريز فلسطينيّ`],
+    [`Object · hand-made to order`, `غرض · يُصنع يدويّاً حسب الطلب`],
+    [`Noor · The Shamanic Bendir`, `نور · البندير الشامانيّ`], [`Noor Rhythms · with a Turkish luthier`, `إيقاعات نور · مع صانع آلاتٍ تركيّ`],
+    [`Noor is the Arabic word for light. Noor Rhythms is Rawan’s collaboration with one of the finest Turkish luthiers of shamanic bendirs: a fusion of the Turkish frame drum and the shamanic drum found in cultures across the globe. Its rim is inflatable — pump it up or let it down to the tone you wish — so it stays tuned through heat and damp. Play it the Eastern way, with your fingers, or the shamanic way, with the stick, holding it by the handle at the back. Every material is sourced ethically and locally: goat or deer skin, Anatolian beech wood, sheep leather on the handles. Each drum is made by hand, with prayers whispered into it and melodies sung into it. From their loving hands to yours.`,
+     `نور كلمةٌ عربيّة تعني الضوء. وإيقاعات نور تعاونٌ بين روان وواحدٍ من أمهر صانعي البندير الشامانيّ في تركيا: امتزاجٌ بين الدفّ التركيّ المعروف بالبندير والطبل الشامانيّ الموجود في ثقافاتٍ كثيرة حول العالم. إطاره قابلٌ للنفخ — تنفخه أو تفرّغه حتّى تبلغ النغمة التي تريدها — فيبقى مضبوطاً في الحرّ والرطوبة. اعزف عليه على الطريقة الشرقيّة بأصابعك، أو على الطريقة الشامانيّة بالعصا، ممسكاً إيّاه من المقبض في ظهره. موادّه كلّها من مصادر أخلاقيّة ومحلّيّة: جلد الماعز أو الغزال، وخشب الزان الأناضوليّ، وجلد الغنم على المقابض. يُصنع كلّ طبلٍ باليد، مع صلواتٍ تُهمس فيه وألحانٍ تُغنّى له. من أيديهم المُحبّة إلى يديك.`],
+    [`Petite: 37 cm wide, 6 cm deep`, `الصغير: عرضه 37 سم، وعمقه 6 سم`], [`Complete: 45 cm wide, 11 cm deep`, `الكامل: عرضه 45 سم، وعمقه 11 سم`],
+    [`An inflatable rim, tuned with the pump`, `إطارٌ قابلٌ للنفخ، يُضبط بالمنفاخ`], [`Stick, pump and bag included`, `العصا والمنفاخ والحقيبة مشمولة`],
+    [`Made from scratch in 3 days`, `يُصنع من البداية في 3 أيّام`], [`Shipping is added to the price`, `يُضاف الشحن إلى السعر`],
+    [`Hand-painted: Tree of Life`, `مرسومٌ باليد: شجرة الحياة`], [`Hand-painted: Shahmaran, the Kurdish goddess`, `مرسومٌ باليد: شاهماران، الإلهة الكرديّة`],
+    [`Hand-painted: Feminine horse spirit`, `مرسومٌ باليد: روح الفرس الأنثويّة`], [`Hand-painted: Cave drawings`, `مرسومٌ باليد: رسوم الكهوف`],
+    [`Hand-painted: Indigenous Turkish symbols`, `مرسومٌ باليد: رموزٌ تركيّة أصيلة`], [`The drum, the stick and the pump`, `الطبل والعصا والمنفاخ`],
+    [`The Complete: 11 cm deep`, `الكامل: بعمق 11 سم`], [`The inflatable rim`, `الإطار القابل للنفخ`], [`Noor — light — on the handle`, `«نور» على المقبض`],
+    [`The stick and the handle`, `العصا والمقبض`], [`The skin`, `الجلد`],
+    [`The Wonders of Whirling workshop has been spinning across the globe since 2017, and now the skirts are here for you too. Rawan and the Turkish fashion designer Ziya Kocaturk chose a light fabric, in a cut that makes waves as the whirler spins, with metal chains along the edges for a larger field of movement. Choose a print of Islamic art or of Palestinian embroidery — or bring an image you desire; that is customisable too. Each skirt is made for you on order, one size fits all, and it will lift your whirling at any level, from beginner to advanced.`,
+     `تدور ورشة عجائب الدوران حول العالم منذ عام 2017، وها قد حان الوقت لتصل التنانير إليكم أيضاً. اختارت روان ومصمّم الأزياء التركيّ ضياء كوجاتورك قماشاً خفيفاً، بقصّةٍ تصنع الموج مع كلّ دورة، وسلاسل معدنيّة على الأطراف تفتح مجالاً أوسع للحركة. اختر نقشةً من الفنّ الإسلاميّ أو من التطريز الفلسطينيّ — أو أحضر صورةً تحبّها، فذلك ممكنٌ أيضاً. تُصنع كلّ تنّورة لك عند الطلب، بمقاسٍ واحد يناسب الجميع، وترافق دورانك في أيّ مستوى، من المبتدئ إلى المتقدّم.`],
+    [`A light fabric, cut to make waves as you turn`, `قماشٌ خفيف، بقصّةٍ تصنع الموج وأنت تدور`], [`Metal chains along the edges`, `سلاسل معدنيّة على الأطراف`],
+    [`Prints of Islamic art or Palestinian embroidery`, `نقشاتٌ من الفنّ الإسلاميّ أو التطريز الفلسطينيّ`], [`One size fits all`, `مقاسٌ واحد يناسب الجميع`], [`Made for you, to order`, `تُصنع لك، حسب الطلب`],
+    [`In motion`, `في الحركة`], [`Wonders of Whirling at the Freedom Theatre Festival, Amman`, `عجائب الدوران في مهرجان مسرح الحرّيّة، عمّان`],
+    [`Reesheh Wings · Winged Ear Cuffs`, `أجنحة ريشة · أساور أذنٍ مجنّحة`], [`With a craft artist in Jordan who cares for birds`, `مع فنّانٍ حِرَفيّ في الأردن يرعى الطيور`],
+    [`Reesheh is the Arabic word for feather. Reesheh Wings is Rawan’s collaboration with a craft artist in Jordan who is a caretaker of birds: ear cuffs of ethically sourced feathers, bound with copper or silver and local dried olive seeds — your very own wings, to wear when you feel ready to connect to the bird spirit and fly, from parties to ceremonies. The feathers are only those that fall naturally and are gathered, so every piece is woven with your destiny: when you order, the wings appear in their own timing for you, and no two are alike. The photographs show pieces already made.`,
+     `ريشة كلمةٌ عربيّة، وأجنحة ريشة تعاونٌ بين روان وفنّانٍ حِرَفيّ في الأردن يرعى الطيور: أساور أذنٍ من ريشٍ مصدره أخلاقيّ، مع النحاس أو الفضّة وبذور الزيتون المجفّفة المحلّيّة — أجنحتك الخاصّة، تلبسها حين تشعر أنّك مستعدٌّ للاتّصال بروح الطير والطيران، من الحفلات إلى الطقوس. الريش هو فقط ما يسقط من الطيور طبيعيّاً ويُجمع، لذا تُحاك كلّ قطعةٍ مع قدرك: حين تطلبها، تظهر الأجنحة في توقيتها الخاصّ لك، ولا تتشابه قطعتان. الصور لقطعٍ صُنعت من قبل.`],
+    [`Dove or parrot feathers, or both`, `ريش حمامٍ أو ببغاء، أو كلاهما`], [`A copper cuff with spirals`, `سوارٌ نحاسيّ بلولبيّات`], [`Dried olive seeds`, `بذور زيتونٍ مجفّفة`],
+    [`Made by hand in 3 days`, `يُصنع باليد في 3 أيّام`],
+    [`Dove wing feathers, dried olive seeds, copper`, `ريش جناح الحمام، بذور زيتونٍ مجفّفة، نحاس`], [`Dove and parrot, copper, olive seed`, `حمامٌ وببغاء، نحاس، بذرة زيتون`],
+    [`Parrot and dove feathers, copper, olive seeds, glass beads`, `ريش ببغاءٍ وحمام، نحاس، بذور زيتون، خرزٌ زجاجيّ`], [`Parrot feather, wooden beads, copper`, `ريشة ببغاء، خرزٌ خشبيّ، نحاس`],
+    [`Silver, dove and parrot, olive seed`, `فضّة، حمامٌ وببغاء، بذرة زيتون`], [`Dangling dove feathers, copper wire, olive seed`, `ريش حمامٍ متدلٍّ، سلكٌ نحاسيّ، بذرة زيتون`],
     /* Voice Liberation, from her document */
     [`A one-on-one program of liberation through the voice, and liberation of the voice. Seven sessions of ninety minutes, in person in Amman or online — beginning with a consultation.`, `برنامجٌ فرديّ للتحرّر عبر الصوت، ولتحرير الصوت. سبع جلسات، تسعون دقيقةً لكلٍّ منها، حضوريّاً في عمّان أو عبر الإنترنت — تبدأ باستشارة.`],
     [`Liberation through the voice. Liberation of the voice.`, `تحرّرٌ عبر الصوت. وتحريرٌ للصوت.`],
@@ -414,7 +446,7 @@
   ];
 
   // a few lines carry live numbers: these are matched by pattern
-  var NUM = { All: 'الكل', Retreats: 'خلوات', Concerts: 'حفلات', Workshops: 'ورشات', Circles: 'دوائر', Online: 'عبر الإنترنت', Music: 'موسيقى', Recordings: 'تسجيلات', Gifts: 'هدايا', Objects: 'أغراض' };
+  var NUM = { All: 'الكل', Retreats: 'خلوات', Concerts: 'حفلات', Workshops: 'ورشات', Circles: 'دوائر', Online: 'عبر الإنترنت', Music: 'موسيقى', Recordings: 'تسجيلات', Gifts: 'هدايا', Objects: 'أغراض', Courses: 'دورات' };
   // months as the Levant names them, and short weekday names for the booking calendar
   var MON = { January: 'كانون الثاني', February: 'شباط', March: 'آذار', April: 'نيسان', May: 'أيّار', June: 'حزيران', July: 'تمّوز', August: 'آب', September: 'أيلول', October: 'تشرين الأوّل', November: 'تشرين الثاني', December: 'كانون الأوّل' };
   var MON3 = { Jan: 'ك٢', Feb: 'شباط', Mar: 'آذار', Apr: 'نيسان', May: 'أيّار', Jun: 'حزيران', Jul: 'تمّوز', Aug: 'آب', Sep: 'أيلول', Oct: 'ت١', Nov: 'ت٢', Dec: 'ك١' };
@@ -431,7 +463,7 @@
     [/^on (.+) · tap a note, or play the maqam$/, function (m) { return 'على ' + m[1] + ' · المس نغمة، أو اعزف المقام'; }],
     [/^(\d+) countries$/, function (m) { return m[1] + ' دول'; }],
     [/^(\d+) offerings in (\d+) countries and online, (\d{4}) to (\d{4})\.$/, function (m) { return m[1] + ' تقدمة في ' + m[2] + ' دول وعبر الإنترنت، من ' + m[3] + ' إلى ' + m[4] + '.'; }],
-    [/^(All|Retreats|Concerts|Workshops|Circles|Online|Music|Recordings|Gifts|Objects)<span>(\d+)<\/span>$/, function (m) { return NUM[m[1]] + '<span>' + m[2] + '</span>'; }]
+    [/^(All|Retreats|Concerts|Workshops|Circles|Online|Music|Recordings|Gifts|Objects|Courses)<span>(\d+)<\/span>$/, function (m) { return NUM[m[1]] + '<span>' + m[2] + '</span>'; }]
   ];
 
   var D = {};
