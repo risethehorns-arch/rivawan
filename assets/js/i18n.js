@@ -41,7 +41,6 @@
     [`<em>·</em> Store <span lang="ar">المتجر</span>`, `<em>·</em> المتجر <span lang="en">Store</span>`],
     [`<em>·</em> Book Rawan <span lang="ar">الدعوة</span>`, `<em>·</em> ادعُ روان <span lang="en">Book Rawan</span>`],
     [`© <span data-year="">2026</span> Rawan Roshni. All rights reserved.`, `© <span data-year="">2026</span> روان روشني. جميع الحقوق محفوظة.`],
-    [`Designed &amp; Powered by:`, `تصميم وتشغيل:`],
     [`Rawan Roshni`, `روان روشني`],
 
     /* ── threshold ── */
@@ -224,7 +223,9 @@
     [`Women’s &amp; grief circles`, `دوائر النساء والحزن`], [`Something custom-made`, `شيءٌ مصمَّم خصّيصاً`],
     [`Organisation or community`, `المؤسّسة أو المجتمع`], [`The group`, `المجموعة`],
     [`Write the invitation`, `اكتب الدعوة`],
-    [`Or write to her directly`, `أو راسلها مباشرة`], [`Copy`, `نسخ`], [`Copied`, `نُسخ`],
+    [`Play the strings`, `اعزف على الأوتار`], [`Sweep across the strings`, `مرّر إصبعك على الأوتار`], [`Hear them`, `اسمعها`],
+    [`Or send word with a bird`, `أو أرسل إليها كلمةً مع الطير`], [`On its way — your email app is opening.`, `في طريقها إليها — يُفتح بريدك الآن.`],
+    [`Copy`, `نسخ`], [`Copied`, `نُسخ`],
 
     /* ── the pages: shared ── */
     [`Draft`, `مسودّة`], [`Sample`, `نموذج`], [`Sample prices`, `أسعارٌ نموذجيّة`],

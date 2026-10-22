@@ -495,7 +495,6 @@ main,.foot,.nav{overflow-x:clip}
 .foot__base{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; font-size:12.5px; color:var(--bone-3)}
 .foot__base p{margin:0}
 .foot .zc{margin-top:0}
-.foot .zc__lead{color:var(--bone-3)}
 @media (pointer:coarse){.foot .zc__link{min-height:44px; padding:0 6px}}
 
 /* ── lightbox ──────────────────────────────────────────────────────── */
